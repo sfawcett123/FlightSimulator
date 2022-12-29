@@ -1,0 +1,87 @@
+﻿@import url('./site.css');
+
+#map {
+    height: 400px;
+    width: 100%;
+    box-shadow: 4px 3px 8px 1px var(--table-shadow-color);
+    border-radius: 3px 4px;
+}
+
+.central {
+    display: flex;
+    justify-content: center;
+}
+
+.table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 100px;
+    width: 50%;
+    box-shadow: 0 0 20px var(--table-shadow-color);
+    align-self: center;
+}
+    .table caption {
+        caption-side: top;
+        color: var(--table-caption-color);
+        font-size: 1rem;
+    }
+
+    .table thead tr {
+        background-color: var(--header-background-color);
+        color: var(--header-foreground-color);
+        text-align: left;
+    }
+
+    .table th,
+    .table td {
+        padding: 12px 15px;
+    }
+
+    .table tbody tr {
+        border-bottom: 1px solid var(--table-border-color);
+    }
+
+        .table tbody tr:nth-of-type(even) {
+            background-color: var( --table-alt-color);
+        }
+
+        .table tbody tr:last-of-type {
+            border-bottom: 2px solid var(--header-background-color);
+        }
+
+        .table tbody tr.active-row {
+            font-weight: bold;
+            color: var(--table-active-colour);
+        }
+
+.top-panel {
+    margin: 10px;
+    width: 80%;
+    height: 8rem;
+    float: left;
+}
+
+    .top-panel .panel {
+        color: black;
+        width: 7rem;
+        border-style: solid;
+        border-color: black;
+        border-width: thin;
+        background-color: aquamarine;
+        box-shadow: 0 0 20px var(--table-shadow-color);
+    }
+
+        .top-panel .panel p {           
+            padding: 5px;
+            width: 70%;
+            height: 50%;
+            text-align: center;
+        }
+
+        .top-panel .panel .count {
+            text-align: center;
+            font-size: 2rem;
+            width: 80%;
+        }
+

@@ -1,0 +1,27 @@
+﻿@page
+@using static Listener.Pages.Debug.ListEndPointsModel;
+@model Listener.Pages.Debug.ListEndPointsModel
+@{
+}
+<link href="~/css/tables.css" rel="stylesheet" />
+
+<div  class="central">
+    <table class="table">
+        <caption>List of Routes</caption>
+        <thead><tr><th>Route</th><th>Action</th><th>Method</th><th>Controller</th></tr></thead>
+        <tbody>
+            @foreach (var row in Model.endpoints as List<EndPoint>)
+            {
+                            <tr>
+                                <td>@row.Route</td>
+                                <td>@row.Action</td>
+                                <td>@row.Method</td>
+                                <td>@row.ControllerMethod</td>
+                            </tr>
+
+            }
+
+        </tbody >
+
+    </table >
+</div>

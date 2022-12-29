@@ -1,0 +1,26 @@
+﻿@page
+@using BoardManager
+@model Listener.Pages.Boards.ListModel
+@{
+}
+<link href="~/css/tables.css" rel="stylesheet" />
+
+<div  class="central">
+    <table id = "BoardList-table" class="table">
+        <caption>List of Connected Boards</caption>
+        <thead><tr><th>Board Name</th><th>OS</th><th>IP Address</th><th>Port</th></tr></thead>
+        <tbody>
+            @foreach (var row in Model.Boards as List<BoardDetails>)
+            {
+                        <tr><td>@row.Name</td>
+                            <td>@row.OS</td>
+                            <td>@row.IPAddress</td> 
+                            <td>@row.Port</td>
+                        </tr>
+
+            }
+
+        </tbody >
+
+    </table >
+</div>

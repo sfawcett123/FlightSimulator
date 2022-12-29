@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "provider": "unpkg",
+      "library": "@microsoft/signalr@7.0.0",
+      "destination": "wwwroot/lib/microsoft/signalr/"
+    },
+    {
+      "library": "font-awesome@6.2.1",
+      "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "@sfawcett191/menulibrary@1.0.1",
+      "destination": "wwwroot/lib/menulibrary/",
+      "files": [
+        "dist/css/menu.css",
+        "dist/img/airplane.png",
+        "dist/img/airplane.svg",
+        "dist/img/arduino.webp",
+        "dist/img/phantom.svg",
+        "dist/js/menu.js"
+      ]
+    }
+  ]
+}

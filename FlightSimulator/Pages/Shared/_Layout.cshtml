@@ -1,0 +1,67 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Model.ApplicationName</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="~/lib/menulibrary/dist/css/menu.css" rel="stylesheet" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/lib/menulibrary/dist/js/menu.js"></script>
+    <script src="~/js/fsjavalib.js"></script>
+
+</head>
+
+@await RenderSectionAsync("Scripts", required: false)
+
+<body>
+    <div class="wrapper">
+        <div class="section">
+            <div class="top_navbar">
+                <div id="hamburger" class="hamburger">
+                    <a href="#">
+                        <em class="fas fa-bars"></em>
+                    </a>
+                </div>
+                <div class="heading">
+                    <em id="connection" class=""></em>
+                </div>
+            </div>
+            <div class="content">
+                @RenderBody()
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div id="closemenu" class="closemenu">
+                <a href="#">
+                    <em class="fas fa-arrow-left"></em>
+                </a>
+            </div>
+            <!--profile image & text-->
+            <div class="profile">
+                <img src="/img/phantom.svg" alt="picture_of_simulator">
+                <h3>Flight Sim</h3>
+                <p>Listener</p>
+            </div>
+            <!--menu item-->
+            <ul>
+                @Html.Raw(LeftMenu.Display(Menu.GetSubClasses<Controller>()))
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+
+</html>

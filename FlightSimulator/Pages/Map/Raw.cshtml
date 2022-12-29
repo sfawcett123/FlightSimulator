@@ -1,0 +1,22 @@
+﻿@page
+@model Listener.Pages.Maps.IndexModel
+
+@{
+    ViewData["Title"] = "Map Page";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+    <title>@ViewData["Title"]</title>
+    <head>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/js/map.js"></script>
+        <link href="~/css/map.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="map"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=@Model.ApiKey&callback=initMap&v=weekly" defer></script>
+    </body>
+</html>

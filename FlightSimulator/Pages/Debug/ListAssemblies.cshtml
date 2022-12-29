@@ -1,0 +1,26 @@
+﻿@page
+@model Listener.Pages.Debug.ListAssembliesModel
+@{
+}
+<link href="~/css/tables.css" rel="stylesheet" />
+
+<div  class="central">
+    <table id = "BoardList-table" class="table">
+        <caption>List of Assemblies</caption>
+        <thead><tr><th>Name</th><th>Version</th></tr></thead>
+        <tbody>
+            @foreach (var row in Model.Desired as List<ListAssembliesModel.AssemblyDetails>)
+            {
+                <tr>
+                    <td>@row.Name</td>
+                    <td>@row.Version.ToString()</td>
+                </tr>
+
+            }
+
+        </tbody >
+    <hl></hl>
+
+    </table >
+
+</div>

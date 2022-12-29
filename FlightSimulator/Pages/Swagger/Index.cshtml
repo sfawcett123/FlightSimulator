@@ -1,0 +1,11 @@
+﻿@page
+@model Listener.Pages.Swagger.IndexModel
+@{
+    ViewData["swagger"] = "/swagger/index.html";
+}
+
+<link href="~/css/frames.css" rel="stylesheet" />
+
+<div id="wrap">
+    <iframe title="Swagger Pages" src=@ViewData["swagger"] id="frame" frameborder="0"></iframe>
+</div>

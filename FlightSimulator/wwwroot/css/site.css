@@ -1,0 +1,59 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('../lib/font-awesome/css/all.min.css');
+@import url('../lib/font-awesome/css/all.css');
+
+:root {
+    --nav-width: 68px;
+    --z-fixed: 100;
+    /* header */
+    --header-font: 'Open Sans', sans-serif;
+    --header-height: 2rem;
+    --header-background-color: rgb(5, 68, 104);
+    --header-foreground-color: #e9e7ef;
+    --header-hover-color: #496f88;
+    /* left menu */
+    --left-menu-background-color: rgb(5, 68, 104);
+    --left-menu-foreground-color: white;
+    --left-menu-hover-color: #496f88;
+    --left-menu-border-color: grey;
+    --left-inner-background-color: rgb(5, 68, 104);
+    /* body */
+    --body-font-size: 1rem;
+    --body-font: 'Nunito', sans-serif;
+    --body-foreground-color: #838383;
+    --body-background-color: white;
+    --body-hover-color: #496f88;
+    /* Body Tables and Boxes*/
+    --table-shadow-color: #969696;
+    --table-border-color: rgb(5, 68, 104);
+    --table-caption-color: black;
+    --table-active-color: red;
+    --table-alt-color: pink;
+}
+
+
+a {
+    text-decoration: none ;
+    font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
+}
+
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--header-font);
+}
+
+*, ::before, ::after {
+    box-sizing: border-box
+}
+
+body {
+    background: var(--body-background-color);
+    color: var(--body-foreground-color);
+    font-family: var(--body-font );
+    font-size: var(--body-font-size);
+}
