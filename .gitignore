@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+/.vs
+/FlightSimulator/.vs
+/.vs/FlightSimulator/v17/.suo
+/.vs/FlightSimulator/FileContentIndex/f0ac5826-89fa-47dc-a363-bbf6e877866c.vsidx
