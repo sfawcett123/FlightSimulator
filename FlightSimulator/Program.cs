@@ -22,7 +22,7 @@ builder.Services.AddHostedService<SimulatorFactory>(provider => provider.GetRequ
 
 builder.Services.AddSwaggerGen(options =>
 {
-    var filePath = Path.Combine(System.AppContext.BaseDirectory, "Listener.xml");
+    var filePath = Path.Combine(System.AppContext.BaseDirectory, "FlightSimulator.xml");
     options.IncludeXmlComments(filePath);
 
    // filePath = Path.Combine(System.AppContext.BaseDirectory, "BoardManager.xml");

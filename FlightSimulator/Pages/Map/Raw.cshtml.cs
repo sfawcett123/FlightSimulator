@@ -9,7 +9,7 @@ namespace Listener.Pages.Maps
         private readonly IConfiguration configuration;
       
         /// <exclude />
-        public string ApiKey { get; }
+        public string? ApiKey { get; }
 
         /// <exclude />
         public IndexModel(IConfiguration configuration )

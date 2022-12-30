@@ -15,7 +15,7 @@ namespace Listener.Controllers
         private readonly Workers.BoardFactory BoardController;
         private readonly IConfiguration configuration;
 
-        private string GetDocumentBase()
+        private string? GetDocumentBase()
         {
             return this.configuration.GetSection("Documents").GetSection("Location").Value  ;
         }
