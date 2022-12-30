@@ -1,11 +1,5 @@
-# Listener
+## Flight Simulator Listener
 
-## Deployment 
-
-
-### IIS 
-Starting a Powershell session with administrator privileges
-```
-cd <package directory>
-.\Listener.deploy.cmd /Y
+This is the user interface and API. The API will provide access to read from and eventually write to Flight Simulator 2000 internal variables.
+It will also provide some simple monitoring utilities. such as a map.
 ```
