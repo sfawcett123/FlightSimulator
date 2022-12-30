@@ -1,36 +1,16 @@
-# Prerequisites
-*.d
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
 
-# Precompiled Headers
-*.gch
-*.pch
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-/.vs
-/FlightSimulator/.vs
-/.vs/FlightSimulator/v17/.suo
-/.vs/FlightSimulator/FileContentIndex/f0ac5826-89fa-47dc-a363-bbf6e877866c.vsidx
+/.vs/
+/obj/
+/bin/
+/FlightSimulator/obj/
+/FlightSimulator/bin/
+/FlightSimulator/obj
+/FlightSimulator/bin
+/FlightSimulator/obj/Debug/net7.0/
+/FlightSimulator/bin/Debug/net7.0/Listener.pdb
+/FlightSimulator/obj/Debug/net7.0/Listener.pdb
+/FlightSimulator/obj/Debug/net7.0/staticwebassets.build.json
+/FlightSimulator/obj/Debug/net7.0/staticwebassets.pack.json
+/FlightSimulator/obj/project.nuget.cache
