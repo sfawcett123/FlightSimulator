@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>2fd1811d-bcb1-4afa-a1f7-35a174da9dc8</UserSecretsId>
@@ -33,11 +33,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BoardManager" Version="1.0.12" />
+    <PackageReference Include="BoardManager" Version="1.0.13" />
     <PackageReference Include="Markdig" Version="0.30.4" />
     <PackageReference Include="MenuLibrary" Version="1.0.10" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.175" />
-    <PackageReference Include="SimListener" Version="1.0.0" />
+    <PackageReference Include="SimListener" Version="1.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
