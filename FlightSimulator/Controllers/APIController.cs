@@ -14,20 +14,23 @@ namespace Listener.Controllers
         private readonly Workers.SimulatorFactory FlightSimulator;
         private readonly Workers.BoardFactory BoardController;
         private readonly IConfiguration configuration;
+        private readonly ILogger<APIController> logger;
 
         private string? GetDocumentBase()
         {
             return this.configuration.GetSection("Documents").GetSection("Location").Value  ;
         }
         /// <summary>Initializes a new instance of the <see cref="APIController" /> class.</summary>
+        /// <param name="logger">The Logger.</param>
         /// <param name="configuration">The configuration.</param>
         /// <param name="hostedService">The hosted service.</param>
         /// <param name="boardController">The board controller.</param>
-        public APIController(IConfiguration configuration , Workers.SimulatorFactory hostedService, Workers.BoardFactory boardController)
+        public APIController(ILogger<APIController> logger, IConfiguration configuration , Workers.SimulatorFactory hostedService, Workers.BoardFactory boardController)
         {
             FlightSimulator = hostedService;
             BoardController = boardController;
             this.configuration = configuration;
+            this.logger = logger;
         }
 
         // POST api/<APIController>
@@ -42,7 +45,7 @@ namespace Listener.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Register([FromBody] BoardManager.Board _name)
         {
-            Console.WriteLine($"Registering {_name.Name}");
+            logger.LogInformation($"Registering {_name.Name}");
             var output = "OK";
 
             if( _name.Outputs is not null)

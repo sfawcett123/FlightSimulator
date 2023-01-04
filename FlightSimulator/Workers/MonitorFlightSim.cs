@@ -13,6 +13,7 @@ namespace Listener.Workers
     {
         private readonly BoardFactory boardController;
         private readonly IHubContext<FlightSimulatorHub> hubContext;
+        private readonly ILogger<SimulatorFactory> logger;
         private BoardManager.Board? InternalBoard;
 
         private Timer? timer = null;
@@ -20,12 +21,16 @@ namespace Listener.Workers
         /// <value>The interval.</value>
         public double Interval { get; private set; } = 1;
 
-        /// <summary>Initializes a new instance of the <see cref="SimulatorFactory" /> class.</summary>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SimulatorFactory"/> class.
+        /// </summary>
+        /// <param name="logger">The logger.</param>
         /// <param name="hubContext">The hub context.</param>
         /// <param name="boardController">The board controller.</param>
-        public SimulatorFactory( IHubContext<FlightSimulatorHub> hubContext, BoardFactory boardController)
+        public SimulatorFactory( ILogger<SimulatorFactory> logger , IHubContext<FlightSimulatorHub> hubContext, BoardFactory boardController)
         {
             this.hubContext = hubContext;
+            this.logger = logger;
             this.boardController = boardController;
         }
 
@@ -83,7 +88,7 @@ namespace Listener.Workers
                                               "PLANE HEADING DEGREES TRUE" },
                     };
 
-                    Console.WriteLine( $"Internal Board add {0}" , boardController.Add(InternalBoard));
+                    logger.LogInformation( $"Internal Board add {0}" , boardController.Add(InternalBoard));
                     AddRequests(InternalBoard.Outputs);
                 }
   

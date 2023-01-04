@@ -2,9 +2,14 @@ using Listener.Hubs;
 using Listener.Workers;
 using Microsoft.OpenApi.Models;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Logging.AddEventLog(eventLogSettings =>
+{
+    eventLogSettings.SourceName = "FSListener";
+});
 
 builder.Services.AddControllersWithViews();
 
