@@ -8,6 +8,20 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PlatformTarget>x64</PlatformTarget>
 	<OutputType>Exe</OutputType>
+	<Configurations>Debug;Release;Web</Configurations>
+	<Platforms>AnyCPU;x86;x64</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Web|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Web|x86'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Web|x64'">
+    <Optimize>True</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
