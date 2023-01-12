@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.OAuth.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
 
 namespace Listener.Pages.Debug
 {
@@ -24,11 +25,12 @@ namespace Listener.Pages.Debug
         }
 
         /// <exclude />
-        public List<EndPoint>? endpoints;
+        public List<EndPoint> endpoints;
         /// <exclude />
         public ListEndPointsModel(IEnumerable<EndpointDataSource> endpointSources)
         {
             this.endpointSources = endpointSources;
+            this.endpoints = new List<EndPoint>();
         }
 
         /// <exclude />

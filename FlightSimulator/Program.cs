@@ -1,15 +1,15 @@
 using Listener.Hubs;
 using Listener.Workers;
 using Microsoft.OpenApi.Models;
-
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Logging.AddEventLog(eventLogSettings =>
+var logger = LoggerFactory.Create(config =>
 {
-    eventLogSettings.SourceName = "FSListener";
-});
+    config.AddConsole();
+}).CreateLogger("FSL");
 
 builder.Services.AddControllersWithViews();
 
@@ -53,6 +53,8 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 var app = builder.Build();
+
+app.Logger.LogInformation("Flight Simulator Listener Starting");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

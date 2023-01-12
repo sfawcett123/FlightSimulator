@@ -25,7 +25,7 @@ namespace Listener.Pages.Debug
             public Version? Version { get; set; }
         }
         /// <exclude />
-        public List<AssemblyDetails>? Desired { get; private set; }
+        public List<AssemblyDetails> Desired { get; private set; }
 
         /// <exclude />
         public ListAssembliesModel()

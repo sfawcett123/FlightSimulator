@@ -8,14 +8,15 @@ namespace Listener.Pages.Boards
     public class ListModel : PageModel
     {
         /// <exclude />
-        public List<BoardDetails>? Boards { get; private set; }
+        public List<BoardDetails> Boards { get; private set; }
         /// <exclude />
         public BoardFactory BoardFactory { get; private set; }
 
         /// <exclude />
         public ListModel(BoardFactory boardFactory)
         {
-                this.BoardFactory = boardFactory;   
+            this.BoardFactory = boardFactory;
+            this.Boards= new List<BoardDetails>();  
         }
 
         /// <exclude />
