@@ -48,7 +48,7 @@ namespace Listener.Controllers
             logger.LogInformation($"Registering {_name.Name}");
             var output = "OK";
 
-            if( _name.Outputs is not null)
+            if ( _name.Outputs is not null)
                 output = FlightSimulator.AddRequests(_name.Outputs);
 
             if( output != "OK"  )    
@@ -60,10 +60,10 @@ namespace Listener.Controllers
                                     instance: HttpContext.Request.Path);
             }
 
-
             try
             {
                 string rval = BoardController.Add(_name, Request.HttpContext.Connection);
+                logger.LogInformation($"External Board added {rval}");
 
                 return new ObjectResult(rval)
                 {

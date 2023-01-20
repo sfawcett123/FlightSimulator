@@ -9,3 +9,7 @@
 /FlightSimulatorTest/bin/
 /FlightSimulatorTest/obj/
 /FlightSimulator/FlightSimulatorTest/obj/
+/FlightSimulator/wwwroot/js/node_modules/
+/FlightSimulator/wwwroot/lib/
+/FlightSimulator/wwwroot/lib
+/FlightSimulator/wwwroot/lib/menulibrary/dist/css/menu.css

@@ -1,23 +1,41 @@
 ﻿"use strict";
 
-var site_connection = new signalR.HubConnectionBuilder().withUrl("/FlightSimulator").build();
 
-site_connection.on("FlightSimulator", function (message) {
+const site_connection = new signalR.HubConnectionBuilder()
+    .withUrl("/FlightSimulator")
+    .configureLogging(signalR.LogLevel.Information)
+    .build();
 
-    var obj = JSON.parse(message);
-    if (obj["Connected"] == "True") {
+function setConnected(Connected) {
+     if ( Connected == "True") 
         document.getElementById("connection").className = "connected fa-solid fa-handshake";
-
-        document.getElementById("Heading").textContent = obj["PLANE HEADING DEGREES TRUE"].inDegrees();
-        document.getElementById("Altitude").textContent = obj["PLANE ALTITUDE"].inFeet();
-        document.getElementById("Latitude").textContent = obj["PLANE LATITUDE"].inDegreeLat();
-        document.getElementById("Longitude").textContent = obj["PLANE LONGITUDE"].inDegreeLong();
-        document.getElementById("AirSpeed").textContent = obj["AIRSPEED TRUE"].inKnots();
-    }
-    else {
+    else
         document.getElementById("connection").className = "disconnected fa-solid fa-handshake";
+}
+
+async function start() {
+    try {
+        await site_connection.start();
+        console.log("Flight Simualtor Connected.");
+    } catch (err) {
+        console.log(err);
+        setTimeout(start, 5000);
     }
+};
+
+site_connection.on("/FlightSimulator", function (message) {
+    var obj = JSON.parse(message);
+    setConnected(obj["Connected"]);
 });
 
-site_connection.start();
+site_connection.onclose(async () => {
+    await start();
+});
+
+// Start the connection, when the document has loaded.
+$(document).ready(function () {
+    setConnected(false);
+    start();
+}); 
+
 

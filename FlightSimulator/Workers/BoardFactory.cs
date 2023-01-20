@@ -37,9 +37,11 @@ namespace Listener.Workers
         }
         private void Process(object? state)
         {
-            RemoveTimedOut();
+            //TODO: Remove Timed out boards function not working.
+            // RemoveTimedOut();
 
-            hubContext.Clients.All.SendAsync("Boards", Serialize());
+            // hubContext.Clients.All.SendAsync("Boards", Serialize());
+
         }
     }
 }

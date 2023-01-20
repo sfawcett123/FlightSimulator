@@ -11,7 +11,7 @@ namespace Listener.Workers
     /// </summary>
     public class SimulatorFactory : Connect, IHostedService, IDisposable
     {
-        private readonly BoardFactory boardController;
+        private readonly BoardFactory boardFactory;
         private readonly IHubContext<FlightSimulatorHub> hubContext;
         private readonly ILogger<SimulatorFactory> logger;
         private BoardManager.Board? InternalBoard;
@@ -26,12 +26,12 @@ namespace Listener.Workers
         /// </summary>
         /// <param name="logger">The logger.</param>
         /// <param name="hubContext">The hub context.</param>
-        /// <param name="boardController">The board controller.</param>
-        public SimulatorFactory( ILogger<SimulatorFactory> logger , IHubContext<FlightSimulatorHub> hubContext, BoardFactory boardController)
+        /// <param name="boardFactory">The board controller.</param>
+        public SimulatorFactory( ILogger<SimulatorFactory> logger , IHubContext<FlightSimulatorHub> hubContext, BoardFactory boardFactory)
         {
             this.hubContext = hubContext;
             this.logger = logger;
-            this.boardController = boardController;
+            this.boardFactory = boardFactory;
         }
 
         /// <summary>Starts the asynchronous.</summary>
@@ -68,7 +68,7 @@ namespace Listener.Workers
 
             if (Connected == false)
             {
-                ConnecttoSim();
+                ConnectToSim();
                 InternalBoard= null;
             }
 
@@ -88,13 +88,13 @@ namespace Listener.Workers
                                               "PLANE HEADING DEGREES TRUE" },
                     };
 
-                    logger.LogInformation( $"Internal Board add {0}" , boardController.Add(InternalBoard));
+                    logger.LogInformation( $"Internal Board added {boardFactory.Add(InternalBoard)}"  );
                     AddRequests(InternalBoard.Outputs);
                 }
   
-                hubContext.Clients.All.SendAsync("FlightSimulator", AircraftData().Serialize());
-                hubContext.Clients.All.SendAsync("FlightSimulatorTrack", TrackData().Serialize());
-                boardController.SetOutputData(AircraftData());
+                hubContext.Clients.All.SendAsync("/FlightSimulator", AircraftData().Serialize());
+                // hubContext.Clients.All.SendAsync("FlightSimulatorTrack", TrackData().Serialize());
+                boardFactory.SetOutputData(AircraftData());
 
             }
         }

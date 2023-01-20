@@ -57,3 +57,17 @@ body {
     font-family: var(--body-font );
     font-size: var(--body-font-size);
 }
+
+.connected {
+    padding-left: 30px;
+    font-size: 30px;
+    color: yellowgreen;
+}
+
+.disconnected {
+    padding-left: 30px;
+    font-size: 30px;
+    color: red;
+}
+
+}
