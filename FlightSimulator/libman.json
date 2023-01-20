@@ -15,6 +15,15 @@
       "provider": "unpkg",
       "library": "@sfawcett191/menulibrary@1.1.0",
       "destination": "wwwroot/lib/menulibrary/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "bootstrap@5.2.3",
+      "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "library": "jquery@3.6.3",
+      "destination": "wwwroot/lib/jquery/"
     }
   ]
 }
