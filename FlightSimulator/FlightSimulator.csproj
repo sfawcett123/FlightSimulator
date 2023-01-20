@@ -44,7 +44,7 @@
     <PackageReference Include="Markdig" Version="0.30.4" />
     <PackageReference Include="MenuLibrary" Version="1.1.1" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.175" />
-    <PackageReference Include="SimListener" Version="1.0.18" />
+    <PackageReference Include="SimListener" Version="1.0.19" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 

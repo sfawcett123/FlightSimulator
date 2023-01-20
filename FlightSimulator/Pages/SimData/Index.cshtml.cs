@@ -8,17 +8,19 @@ namespace Listener.Pages.SimData
     public class IndexModel : PageModel
     {
         /// <exclude />
+        private readonly SimulatorFactory simulator;
+
         public Dictionary<string, string> SimData { get; private set; }
 
         /// <exclude />
         public IndexModel( SimulatorFactory simulator)
         {
-            SimData = simulator.AircraftData();
+            this.simulator = simulator;
         }      
         /// <exclude />
         public void OnGet()
         {
-            
+            SimData = simulator.AircraftData();
         }
     }
 }
