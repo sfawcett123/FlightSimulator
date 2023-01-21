@@ -5,20 +5,36 @@
 
 <link href="~/css/tables.css" rel="stylesheet" />
 
-<div  class="central">
-    <table id = "SimDataList-table" class="table">
-        <caption>List of Requested Simulator Data (@Model.SimData.Count Elements)</caption>
-        <thead><tr><th>Measure</th><th>Value</th></tr></thead>
-        <tbody>
-            @foreach (var row in Model.SimData as Dictionary<string, string>)
-            {
-                        <tr><td>@row.Key</td>
-                            <td>@row.Value</td>
-                        </tr>
+<div class="side_column">
+    <h2>Simulator Outputs</h2>
+    @foreach (var row in Model.SimData as Dictionary<string, string>)
+    {
+        <div>
+            <h3>@row.Key</h3>
+            <p id="op_"@row.Key>@row.Value</p>
+        </div>
+    }
 
-            }
+</div>
 
-        </tbody >
+<div class="centre_column">
+    <h2>Connected Boards</h2>
+    @foreach (var row in Model.ListOfBoards )
+    {
+            <div id=@row.Name>
+                <h3>@row.Name</h3>
+                <p>Connection @row.GetIPAddress():@row.GetPort()</p>
+            </div>
+    }
+</div>
 
-    </table >
+<div class="side_column">
+    <h2>Board Inputs</h2>
+    @foreach (var row in Model.InputData as Dictionary<string, string>)
+    {
+            <div>
+                <h3>@row.Key</h3>
+                <p id="ip_"@row.Key>@row.Value</p>
+            </div>
+    }
 </div>
