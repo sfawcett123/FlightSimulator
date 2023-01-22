@@ -34,7 +34,6 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\boards.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\Frames.css" />
-    <_ContentIncludedByDefault Remove="wwwroot\js\debug.js" />
     <_ContentIncludedByDefault Remove="wwwroot\js\fsjavalib.js" />
     <_ContentIncludedByDefault Remove="wwwroot\js\map.js" />
   </ItemGroup>

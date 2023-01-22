@@ -4,12 +4,13 @@
 }
 
 <link href="~/css/tables.css" rel="stylesheet" />
+<script src="~/js/boards.js"></script>
 
-<div class="side_column">
+<div id="outputList" class="side_column">
     <h2>Simulator Outputs</h2>
     @foreach (var row in Model.SimData as Dictionary<string, string>)
     {
-        <div>
+        <div >
             <h3>@row.Key</h3>
             <p id="op_"@row.Key>@row.Value</p>
         </div>
@@ -17,15 +18,8 @@
 
 </div>
 
-<div class="centre_column">
+<div id="boardList" class="centre_column">
     <h2>Connected Boards</h2>
-    @foreach (var row in Model.ListOfBoards )
-    {
-            <div id=@row.Name>
-                <h3>@row.Name</h3>
-                <p>Connection @row.GetIPAddress():@row.GetPort()</p>
-            </div>
-    }
 </div>
 
 <div class="side_column">

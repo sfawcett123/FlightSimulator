@@ -7,13 +7,5 @@ namespace Listener.Hubs
     /// </summary>
     public class FlightSimulatorHub : Hub
     {
-        /// <summary>
-        /// Send Data to Flight Simulator Hub
-        /// </summary>
-        /// <param name="message"></param>
-        public void SendMessage(string message)
-        {
-            Clients.All.SendAsync("FlightSimulator", message);
-        }
     }
 }

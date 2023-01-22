@@ -19,7 +19,7 @@ map_connection.on("FlightSimulatorTrack", function (message) {
     AddTrack(res);
 });
 
-map_connection.on("FlightSimulator", function (message) {
+map_connection.on("/FlightSimulator", function (message) {
    
     obj = JSON.parse(message);
 

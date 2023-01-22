@@ -92,7 +92,8 @@ namespace Listener.Workers
                     AddRequests(InternalBoard.Outputs);
                 }
   
-                hubContext.Clients.All.SendAsync("/FlightSimulator", AircraftData().Serialize());
+                hubContext.Clients.All.SendAsync("SimData", AircraftData().Serialize());
+            
                 // hubContext.Clients.All.SendAsync("FlightSimulatorTrack", TrackData().Serialize());
                 boardFactory.SetOutputData(AircraftData());
 
