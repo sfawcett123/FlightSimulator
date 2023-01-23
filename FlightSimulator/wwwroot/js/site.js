@@ -1,6 +1,5 @@
 ﻿"use strict";
 
-
 const site_connection = new signalR.HubConnectionBuilder()
     .withUrl("/FlightSimulator")
     .configureLogging(signalR.LogLevel.Information)
@@ -11,26 +10,6 @@ function setConnected(Connected) {
         document.getElementById("connection").className = "connected fa-solid fa-handshake";
     else
         document.getElementById("connection").className = "disconnected fa-solid fa-handshake";
-}
-
-function DrawBoard(boardlist , board ) {
-    var found = false
-    var divs = boardlist.getElementsByTagName('div');
-    for (var i = 0; i < divs.length; i += 1) {
-        if (divs[i].id == board.Name ) found = true
-    }
-    if (!found) {
-        CreateBoard(boardlist, board )
-    }
-}
-
-function CreateBoard(boardlist , board) {
-    let div = document.createElement("div");
-    div.id = board.Name;
-    div.innerHTML = "<h3>" + board.Name + "</h3>" 
-    div.innerHTML += "<p>" + board["ConnectedAddress"] + "</p>"
-    boardlist.appendChild(div);
-
 }
 
 async function start() {
@@ -44,41 +23,38 @@ async function start() {
 };
 
 site_connection.on("SimData", function (message) {
+ 
     var obj = JSON.parse(message);
     setConnected(obj["Connected"]);
+
+    var map = document.getElementById("map")
+    if (map) DrawMap(obj);
+
+    var outputs = document.getElementById("outputList")
+    if (outputs) DrawOutputs(outputs, obj);
+    if (outputs) DeleteOutputs(outputs, obj);
 });
 
-
 site_connection.on("BoardData", function (message) {
-    var obj = JSON.parse(message);
-
     var boardlist = document.getElementById("boardList")
     if (boardlist == null) return;
+
+    var obj = JSON.parse(message);
 
     for (let bd = 0; bd < obj.length; bd++) {
         DrawBoard( boardlist, obj[bd] )
     }
-
-    var boardlist = document.getElementById("boardList")
-    var divs  = boardlist.getElementsByTagName('div');
-    for (let div = 0; div < divs.length; div++) {
-        var found = false
-        for (let bd = 0; bd < obj.length; bd++) {
-            console.log("Inspecting " + obj[bd].Name + " against " + divs[div].id )
-            if (obj[bd].Name == divs[div].id) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            console.log("Removing " + divs[div].id)
-            boardlist.removeChild(divs[div])
-        }
-            
-    }
-
+    // Check for any boards that have gone off line
+    DeleteBoards(boardlist, obj)
 });
 
+site_connection.on("InputList", function (message) {
+    var inputs = document.getElementById("inputList")
+    var obj = JSON.parse(message);
+
+    if (inputs) DrawOutputs(inputs, obj);
+    if (inputs) DeleteOutputs(inputs, obj);
+});
 
 site_connection.onclose(async () => {
     await start();

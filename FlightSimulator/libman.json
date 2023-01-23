@@ -13,7 +13,7 @@
     },
     {
       "provider": "unpkg",
-      "library": "@sfawcett191/menulibrary@1.1.0",
+      "library": "@sfawcett191/menulibrary@1.1.3",
       "destination": "wwwroot/lib/menulibrary/"
     },
     {

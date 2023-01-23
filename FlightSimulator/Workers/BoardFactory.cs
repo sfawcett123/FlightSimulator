@@ -39,11 +39,9 @@ namespace Listener.Workers
         {
             RemoveTimedOut();
 
-            if (this.GetBoards().Count > 0)
-            {
-                hubContext.Clients.All.SendAsync("BoardData", Serialize());
-            }
+            hubContext.Clients.All.SendAsync("BoardData", Serialize());
 
+            hubContext.Clients.All.SendAsync("InputList", this.GetAllInputData().Serialize());
         }
     }
 }

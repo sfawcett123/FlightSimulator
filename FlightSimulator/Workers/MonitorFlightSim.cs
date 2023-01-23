@@ -91,13 +91,13 @@ namespace Listener.Workers
                     logger.LogInformation( $"Internal Board added {boardFactory.Add(InternalBoard)}"  );
                     AddRequests(InternalBoard.Outputs);
                 }
-  
-                hubContext.Clients.All.SendAsync("SimData", AircraftData().Serialize());
-            
+                
                 // hubContext.Clients.All.SendAsync("FlightSimulatorTrack", TrackData().Serialize());
                 boardFactory.SetOutputData(AircraftData());
 
             }
+
+            hubContext.Clients.All.SendAsync("SimData", AircraftData().Serialize());
         }
     }
 }
