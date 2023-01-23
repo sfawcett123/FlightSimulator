@@ -8,27 +8,12 @@
 
 <div id="outputList" class="side_column">
     <h2>Simulator Outputs</h2>
-    @foreach (var row in Model.SimData as Dictionary<string, string>)
-    {
-        <div >
-            <h3>@row.Key</h3>
-            <p id="op_"@row.Key>@row.Value</p>
-        </div>
-    }
-
 </div>
 
 <div id="boardList" class="centre_column">
     <h2>Connected Boards</h2>
 </div>
 
-<div class="side_column">
+<div id="inputList"  class="side_column">
     <h2>Board Inputs</h2>
-    @foreach (var row in Model.InputData as Dictionary<string, string>)
-    {
-            <div>
-                <h3>@row.Key</h3>
-                <p id="ip_"@row.Key>@row.Value</p>
-            </div>
-    }
 </div>
