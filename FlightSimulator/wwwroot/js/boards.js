@@ -2,26 +2,40 @@
     var found = false
     var divs = boardlist.getElementsByTagName('div');
     for (var i = 0; i < divs.length; i += 1) {
-        if (divs[i].id == board.Name) found = true
+        if (divs[i].id == board.Name) {
+            found = true
+        }
     }
     if (!found) {
         CreateBoard(boardlist, board)
     }
 }
 
-function CreateBoard(boardlist, board) {
-    let div = document.createElement("div");
-    div.id = board.Name;
-    div.innerHTML = "<h3>" + board.Name + "</h3>"
-    div.innerHTML += "<p>" + board.ConnectedAddress + "</p>"
-    boardlist.appendChild(div);
+function CreateBoard(boardlist, bd) {
+    const outerDiv = document.createElement("div");
+    outerDiv.id = bd.Name;
+    outerDiv.innerHTML = "<h3>" + bd.Name + "</h3>"
 
+    const innerDiv = document.createElement("div");
+    innerDiv.id = "IP";
+    innerDiv.innerHTML = "<p>" + bd.ConnectedAddress + "</p>"
+
+    const innerDiv2 = document.createElement("div");
+    innerDiv2.id = "IP";
+    innerDiv2.innerHTML = "<p>" + bd.OS + "</p>"
+
+    outerDiv.appendChild(innerDiv)
+    outerDiv.appendChild(innerDiv2)
+    boardlist.appendChild(outerDiv)
 }
 
 function DeleteBoards(boardlist, boards) {
     var divs = boardlist.getElementsByTagName('div');
 
     for (var div = 0; div < divs.length; div++) {
+        if (divs[div].id == "IP")
+            continue;
+
         var found = false
         for (var bd = 0; bd < boards.length; bd++) {
             if (boards[bd].Name == divs[div].id) {

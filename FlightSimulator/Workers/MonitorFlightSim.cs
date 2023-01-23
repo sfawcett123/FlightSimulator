@@ -19,7 +19,7 @@ namespace Listener.Workers
         private Timer? timer = null;
         /// <summary>Gets the interval.</summary>
         /// <value>The interval.</value>
-        public double Interval { get; private set; } = 1;
+        public double Interval { get; private set; } = 5;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SimulatorFactory"/> class.
