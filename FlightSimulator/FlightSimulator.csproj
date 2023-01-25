@@ -34,17 +34,16 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\boards.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\Frames.css" />
-    <_ContentIncludedByDefault Remove="wwwroot\js\debug.js" />
     <_ContentIncludedByDefault Remove="wwwroot\js\fsjavalib.js" />
     <_ContentIncludedByDefault Remove="wwwroot\js\map.js" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BoardManager" Version="1.0.23" />
+    <PackageReference Include="BoardManager" Version="1.2.1" />
     <PackageReference Include="Markdig" Version="0.30.4" />
-    <PackageReference Include="MenuLibrary" Version="1.1.1" />
+    <PackageReference Include="MenuLibrary" Version="1.1.4" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.175" />
-    <PackageReference Include="SimListener" Version="1.0.19" />
+    <PackageReference Include="SimListener" Version="1.0.20" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 

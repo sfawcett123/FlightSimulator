@@ -19,7 +19,7 @@ namespace Listener.Workers
         private Timer? timer = null;
         /// <summary>Gets the interval.</summary>
         /// <value>The interval.</value>
-        public double Interval { get; private set; } = 1;
+        public double Interval { get; private set; } = 5;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SimulatorFactory"/> class.
@@ -91,12 +91,15 @@ namespace Listener.Workers
                     logger.LogInformation( $"Internal Board added {boardFactory.Add(InternalBoard)}"  );
                     AddRequests(InternalBoard.Outputs);
                 }
-  
-                hubContext.Clients.All.SendAsync("/FlightSimulator", AircraftData().Serialize());
+                
                 // hubContext.Clients.All.SendAsync("FlightSimulatorTrack", TrackData().Serialize());
                 boardFactory.SetOutputData(AircraftData());
 
             }
+
+            // TODO: Remove Debug message
+            Console.WriteLine(AircraftData().Serialize());
+            hubContext.Clients.All.SendAsync("SimData", AircraftData().Serialize());
         }
     }
 }

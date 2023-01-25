@@ -13,12 +13,13 @@ namespace Listener.Workers
         private readonly Timer timer;
         private readonly IHubContext<FlightSimulatorHub> hubContext;
         /// <exclude />
-        public double Interval { get; set; } = 1;
+        public double RateOne { get; set; } = 5;
         /// <exclude />
         public BoardFactory(IHubContext<FlightSimulatorHub> hubContext)
         {
             this.hubContext = hubContext;
-            timer = new Timer(Process, null, TimeSpan.Zero, TimeSpan.FromSeconds(Interval));
+            timer = new Timer(Process, null, TimeSpan.Zero, TimeSpan.FromSeconds(RateOne));
+      
         }
         /// <exclude />
         public Task StartAsync(CancellationToken cancellationToken)
@@ -37,11 +38,11 @@ namespace Listener.Workers
         }
         private void Process(object? state)
         {
-            //TODO: Remove Timed out boards function not working.
-            // RemoveTimedOut();
+            RemoveTimedOut();
 
-            // hubContext.Clients.All.SendAsync("Boards", Serialize());
+            hubContext.Clients.All.SendAsync("BoardData", Serialize());
 
+            hubContext.Clients.All.SendAsync("InputList", this.GetAllInputData().Serialize());
         }
     }
 }

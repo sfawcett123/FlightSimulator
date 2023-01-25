@@ -3,22 +3,17 @@
 @{
 }
 
-<link href="~/css/tables.css" rel="stylesheet" />
+<link href="~/css/boards.css" rel="stylesheet" />
+<script src="~/js/boards.js"></script>
 
-<div  class="central">
-    <table id = "SimDataList-table" class="table">
-        <caption>List of Requested Simulator Data (@Model.SimData.Count Elements)</caption>
-        <thead><tr><th>Measure</th><th>Value</th></tr></thead>
-        <tbody>
-            @foreach (var row in Model.SimData as Dictionary<string, string>)
-            {
-                        <tr><td>@row.Key</td>
-                            <td>@row.Value</td>
-                        </tr>
+<div id="outputList" class="side_column">
+    <h2>Simulator Outputs</h2>
+</div>
 
-            }
+<div id="boardList" class="centre_column">
+    <h2>Connected Boards</h2>
+</div>
 
-        </tbody >
-
-    </table >
+<div id="inputList"  class="side_column">
+    <h2>Board Inputs</h2>
 </div>

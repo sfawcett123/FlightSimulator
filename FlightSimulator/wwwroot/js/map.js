@@ -1,6 +1,5 @@
 ﻿"use strict";
 
-var map_connection = new signalR.HubConnectionBuilder().withUrl("/FlightSimulator").build();
 const InitialPostition = { lat: 54.84414, lng: -1.50106 };
 
 var FirstCall = true;
@@ -8,49 +7,22 @@ var FirstCall = true;
 var map;
 var zoom = 12;
 var aircraft;
-var obj;
 var angle = 0;
 
 var LockToCentre = false;
 
-map_connection.on("FlightSimulatorTrack", function (message) {
-
-    const res = JSON.parse(message);
-    AddTrack(res);
-});
-
-map_connection.on("FlightSimulator", function (message) {
+function DrawMap(obj) {
    
-    obj = JSON.parse(message);
-
     if (obj["Connected"] == "True") {
-        Move();
+        Move( obj );
         FirstCall = false;
     }
     else {
         FirstCall = true;
     }
-});
-
-function AddTrack( Tracks ) {
-
-    var result = [];
-
-    for (const key in Tracks) {
-        var data = new google.maps.LatLng( Tracks[key].Latitude, Tracks[key].Longitude);
-         result.push(data);
-    }
-
-    const flightPath = new google.maps.Polyline({
-            path: result,
-            strokeColor: "#F0E68C",
-            strokeOpacity: 1.0,
-            strokeWeight: 2,
-    });
-    flightPath.setMap(map);
 }
 
-function Move() {
+function Move( obj ) {
 
     if (obj["Connected"] == "False") return;
 
@@ -103,10 +75,9 @@ function initMap() {
         map: map,
     });
 
-    google.maps.event.addListenerOnce(map, 'idle', function () {
-        setInterval(Move, 1000);
-    });
+  //  google.maps.event.addListenerOnce(map, 'idle', function () {
+  //      setInterval(Move, 1000);
+  //  });
 }
 
-map_connection.start();
 window.initMap = initMap;
