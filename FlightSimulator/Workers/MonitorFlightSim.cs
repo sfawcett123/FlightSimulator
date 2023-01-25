@@ -97,6 +97,8 @@ namespace Listener.Workers
 
             }
 
+            // TODO: Remove Debug message
+            Console.WriteLine(AircraftData().Serialize());
             hubContext.Clients.All.SendAsync("SimData", AircraftData().Serialize());
         }
     }
