@@ -6,10 +6,13 @@ const site_connection = new signalR.HubConnectionBuilder()
     .build();
 
 function setConnected(Connected) {
-     if ( Connected == "True") 
-        document.getElementById("connection").className = "connected fa-solid fa-handshake";
-    else
-        document.getElementById("connection").className = "disconnected fa-solid fa-handshake";
+    var div = document.getElementById("connection")
+    if (div) {
+        if (Connected == "True")
+            document.getElementById("connection").className = "connected fa-solid fa-handshake";
+        else
+            document.getElementById("connection").className = "disconnected fa-solid fa-handshake";
+    }
 }
 
 async function start() {
@@ -24,15 +27,15 @@ async function start() {
 
 site_connection.on("SimData", function (message) {
  
-    var obj = JSON.parse(message);
-    setConnected(obj["Connected"]);
+    var SimData = JSON.parse(message);
+    setConnected(SimData["Connected"]);
 
     var map = document.getElementById("map")
-    if (map) DrawMap(obj);
+    if (map) DrawMap(SimData);
 
     var outputs = document.getElementById("outputList")
-    if (outputs) DrawOutputs(outputs, obj);
-    if (outputs) DeleteOutputs(outputs, obj);
+    if (outputs) DrawOutputs(outputs, SimData);
+    if (outputs) DeleteOutputs(outputs, SimData);
 });
 
 site_connection.on("BoardData", function (message) {

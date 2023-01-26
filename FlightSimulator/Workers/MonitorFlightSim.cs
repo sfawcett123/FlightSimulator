@@ -19,7 +19,7 @@ namespace Listener.Workers
         private Timer? timer = null;
         /// <summary>Gets the interval.</summary>
         /// <value>The interval.</value>
-        public double Interval { get; private set; } = 5;
+        public double Interval { get; private set; } = 1;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SimulatorFactory"/> class.
@@ -97,8 +97,6 @@ namespace Listener.Workers
 
             }
 
-            // TODO: Remove Debug message
-            Console.WriteLine(AircraftData().Serialize());
             hubContext.Clients.All.SendAsync("SimData", AircraftData().Serialize());
         }
     }

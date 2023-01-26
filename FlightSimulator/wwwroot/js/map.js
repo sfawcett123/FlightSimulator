@@ -9,12 +9,13 @@ var zoom = 12;
 var aircraft;
 var angle = 0;
 
+
 var LockToCentre = false;
 
-function DrawMap(obj) {
-   
-    if (obj["Connected"] == "True") {
-        Move( obj );
+function DrawMap(json) {
+
+    if (json["Connected"] == "True") {
+        Move(json );
         FirstCall = false;
     }
     else {
@@ -22,19 +23,22 @@ function DrawMap(obj) {
     }
 }
 
-function Move( obj ) {
+function Move(SimData) {
 
-    if (obj["Connected"] == "False") return;
+    console.log( "In Move")
+    console.log(SimData);
+
+    if (SimData["Connected"] == "False") return;
 
     var image = aircraft.getIcon();
     
-    image.rotation = parseInt( obj["PLANE HEADING DEGREES TRUE"] );
+    image.rotation = parseInt(SimData["PLANE HEADING DEGREES TRUE"] );
     aircraft.setIcon(image);
-    console.log(obj);
+  
 
-    moveAircraft(obj["PLANE LATITUDE"], obj["PLANE LONGITUDE"]);
+    moveAircraft(SimData["PLANE LATITUDE"], SimData["PLANE LONGITUDE"]);
 
-    if (LockToCentre || FirstCall) panToAircraft(obj["PLANE LATITUDE"], obj["PLANE LONGITUDE"]);
+    if (LockToCentre || FirstCall) panToAircraft(SimData["PLANE LATITUDE"], SimData["PLANE LONGITUDE"]);
 }
 
 function panToAircraft(Lat, Lng) {
@@ -75,9 +79,9 @@ function initMap() {
         map: map,
     });
 
-  //  google.maps.event.addListenerOnce(map, 'idle', function () {
-  //      setInterval(Move, 1000);
-  //  });
+    //google.maps.event.addListenerOnce(map, 'idle', function () {
+    //    setInterval(Move, 1000);
+    //});
 }
 
 window.initMap = initMap;
