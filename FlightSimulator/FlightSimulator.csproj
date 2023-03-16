@@ -40,7 +40,7 @@
 
   <ItemGroup>
     <PackageReference Include="BoardManager" Version="1.2.1" />
-    <PackageReference Include="Markdig" Version="0.30.4" />
+    <PackageReference Include="Markdig" Version="0.31.0" />
     <PackageReference Include="MenuLibrary" Version="1.1.4" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.175" />
     <PackageReference Include="SimListener" Version="1.0.21" />
