@@ -9,23 +9,23 @@ namespace Listener.Controllers
     /// </summary>
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class APIController : Controller
+    public class dataController : Controller
     {
         private readonly Workers.SimulatorFactory FlightSimulator;
         private readonly Workers.BoardFactory BoardController;
         private readonly IConfiguration configuration;
-        private readonly ILogger<APIController> logger;
+        private readonly ILogger<dataController> logger;
 
         private string? GetDocumentBase()
         {
             return this.configuration.GetSection("Documents").GetSection("Location").Value  ;
         }
-        /// <summary>Initializes a new instance of the <see cref="APIController" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="dataController" /> class.</summary>
         /// <param name="logger">The Logger.</param>
         /// <param name="configuration">The configuration.</param>
         /// <param name="hostedService">The hosted service.</param>
         /// <param name="boardController">The board controller.</param>
-        public APIController(ILogger<APIController> logger, IConfiguration configuration , Workers.SimulatorFactory hostedService, Workers.BoardFactory boardController)
+        public dataController(ILogger<dataController> logger, IConfiguration configuration , Workers.SimulatorFactory hostedService, Workers.BoardFactory boardController)
         {
             FlightSimulator = hostedService;
             BoardController = boardController;
@@ -33,12 +33,11 @@ namespace Listener.Controllers
             this.logger = logger;
         }
 
-        // POST api/<APIController>
+        // POST api/<DATAController>
         // TODO: Add some defaults which will make Swagger work
         /// <summary>Registers a board with the Sim Listener</summary>
         /// <param name="_name">The details of the board.</param>
         /// <response code="201">Board Accepted</response>
-        /// <response code="400">Invalid Data in request</response>
         [HttpPost]
         [Route("register")]
         [ProducesResponseType(StatusCodes.Status201Created)]
