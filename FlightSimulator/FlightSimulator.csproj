@@ -39,7 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BoardManager" Version="1.2.1" />
+    <PackageReference Include="BoardManager" Version="1.2.6" />
     <PackageReference Include="Markdig" Version="0.31.0" />
     <PackageReference Include="MenuLibrary" Version="1.1.15" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.175" />
