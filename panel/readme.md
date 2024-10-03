@@ -1,3 +1,7 @@
+## Source
+
+https://thewarthogproject.com/
+
 ## The basic layout
 All of the panels consist of three layers of laser cut cast acrylic sheet.
 
@@ -21,3 +25,10 @@ Cut from 2mm solid white cast acrylic.
 Has holes cut in where the toggles are, usually 12mm but sometimes different shapes. This means the nuts holding the switch in place is not visible as they are under the top layer.
 This panel is cut out, then painted completely in flat black paint, before the text is then engraved into it. The laser removes the paint and reveales the white plastic underneath. As the paint blocks the backlight, only the text will illuminate.
 The panel is cut, removed from the laser and painted, then put back in and engraved. This is done because if it were painted first, then cut and engraved in one go, the outside edges where they were cut out would also have the paint removed and would backlit.
+
+## Fonts
+?
+
+## Paint
+
+## Acrylic Source
